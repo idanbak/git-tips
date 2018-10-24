@@ -26,7 +26,7 @@ Aliases are helpers that let you define your own git calls. For example, you cou
 ### (1) .gitconfig
 To add an alias, either navigate to `~/.gitconfig` and fill it out in the following format:
 
-```
+```sh
 [alias]
   st = status
   co = checkout
@@ -35,14 +35,14 @@ To add an alias, either navigate to `~/.gitconfig` and fill it out in the follow
 
 ...or type in the command-line:
 
-```bash
+```sh
 git config --global alias.st 'status'
 ```
 
 ### (2) Bash .profile
 If you want even shorter aliases, you can configure them in your preferred shell configuration file. For example if you are using Git bash, this can be achieved by edit (or, create a new one if not exist) the `.profile` file in your user home  `(C:\Users\<your_username>\.profile)` and paste this, then restart you GitBash.
 
-```bash
+```sh
 alias gst="git status"
 ```
 
@@ -53,7 +53,7 @@ Have a look at [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin
 ## Terminal
 Integrate **Git Bash** in Visual Studio Code Terminal by adding below setting (later this setting also useful when adding command/git alias):
 
-```javascript
+```json
 {
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "terminal.integrated.shellArgs.windows": [
@@ -81,7 +81,7 @@ git help -g
 ## What did I just commit?
 Let's say that you just blindly committed changes with `git commit` and you're not sure what the actual content of the commit you just made was. You can show the latest commit on your current HEAD with:
 
-```bash
+```sh
 git show
 
 # or
@@ -91,7 +91,7 @@ git log -p -1
 ## Quickly switch to the previous branch
 To move to the previous branch in Git:
 
-```bash
+```sh
 $ git checkout -
 # Switched to branch 'master'
 
@@ -103,14 +103,14 @@ $ git checkout -
 ```
 
 __Alternatives:__
-```bash
+```sh
 git checkout @{-1}
 ```
 
 ## Styled Git Status
 Show the index (changed files).
 
-```bash
+```sh
 git status
 
 # or simplify the output
@@ -120,7 +120,7 @@ git status -sb
 ## Visualize the version tree
 Running:
 
-```bash
+```sh
 git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
 
 # or use this alternative
@@ -135,20 +135,20 @@ git shortlog
 ## List all branches
 List all branches and their upstreams, as well as last commit on branch
 
-```bash
+```sh
 git branch -vv
 ```
 
 ## Git Query
 A Git query allows you to search all your previous commit messages and find the most recent one matching the query.
 
-```bash
+```sh
 $ git show :/query
 ```
 
 where `query` (case-sensitive) is the term you want to search, this then finds the last one and gives details on the lines that were changed.
 
-```bash
+```sh
 $ git show :/typo
 ```
 ![git show :/query](http://i.imgur.com/icaGiNt.png)
@@ -156,7 +156,7 @@ $ git show :/typo
 ## Git Diff
 Show changes between commits, commit and working tree, etc
 
-```bash
+```sh
 # List all the conflicted files
 git diff --name-only --diff-filter=U
 
