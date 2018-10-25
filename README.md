@@ -5,14 +5,14 @@ Speed up your git with these tips and tricks
 * [Aliases](#aliases)
 * [Terminal](#terminal)
 * [Everyday Git in twenty commands or so](#everyday-git-in-twenty-commands-or-so)
-* [Show helpful guides that come with Git](#show-helpful-guides-that-come-with-Git)
+* [Show helpful guides that come with Git](#show-helpful-guides-that-come-with-git)
+* [Git clone](#git-clone)
 * [What did I just commit?](#what-did-i-just-commit)
 * [Quickly switch to the previous branch](#quickly-switch-to-the-previous-branch)
 * [Styled Git Status](#styled-git-status)
 * [Visualize the version tree](#visualize-the-version-tree)
 * [Group commits by authors and title](#group-commits-by-authors-and-title)
 * [List all branches](#list-all-branches)
-* [Git Query](#git-query)
 * [Git Diff](#git-diff)
 * [What changed since two weeks?](#what-changed-since-two-weeks)
 * [Push a new local branch](#push-a-new-local-branch)
@@ -77,6 +77,22 @@ git help everyday
 git help -g
 ```
 
+## Git clone
+Clone repository and directly cd into it.
+
+First, we need to create simple script:
+
+```sh
+gclone() {
+  git clone "$1" && cd "$(basename $1 .git)"
+}
+```
+then make alias for it:
+
+```sh
+alias gcd=gclone
+```
+
 
 ## What did I just commit?
 Let's say that you just blindly committed changes with `git commit` and you're not sure what the actual content of the commit you just made was. You can show the latest commit on your current HEAD with:
@@ -138,20 +154,6 @@ List all branches and their upstreams, as well as last commit on branch
 ```sh
 git branch -vv
 ```
-
-## Git Query
-A Git query allows you to search all your previous commit messages and find the most recent one matching the query.
-
-```sh
-$ git show :/query
-```
-
-where `query` (case-sensitive) is the term you want to search, this then finds the last one and gives details on the lines that were changed.
-
-```sh
-$ git show :/typo
-```
-![git show :/query](http://i.imgur.com/icaGiNt.png)
 
 ## Git Diff
 Show changes between commits, commit and working tree, etc
