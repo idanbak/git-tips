@@ -1,5 +1,6 @@
 # git-tips
-Speed up your git with these tips and tricks
+Speed up your git with these tips and tricks.
+Go directly to [example script and alias](https://github.com/idanbak/git-tips/blob/master/.profile)
 
 ## __Content:__
 * [Aliases](#aliases)
